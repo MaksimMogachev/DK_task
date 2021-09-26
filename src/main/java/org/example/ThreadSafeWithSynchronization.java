@@ -75,7 +75,10 @@ public class ThreadSafeWithSynchronization {
 
   private String getConfig() throws IOException {
     BufferedReader reader = new BufferedReader(new FileReader("./config.txt"));
-    return reader.readLine().substring(11);
+    String config = reader.readLine().substring(11);
+    reader.close();
+
+    return config;
   }
 
   public static void main(String[] args) throws IOException {
